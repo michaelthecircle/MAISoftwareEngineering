@@ -4,8 +4,9 @@ import { MapState } from "../common/types";
 import { Edge, Node } from "react-flow-renderer";
 import { v4 as uuid } from "uuid";
 
+const history = new HistoryManager();
+
 type UseMapSelectionHandlersParams = {
-    history: HistoryManager;
     mapState: MapState;
     setMapState: React.Dispatch<React.SetStateAction<MapState>>;
     setShowMapSelector: React.Dispatch<React.SetStateAction<boolean>>
@@ -15,7 +16,6 @@ type UseMapSelectionHandlersParams = {
 
 
 export function useMapSelectionHandlers({
-    history,
     mapState,
     setMapState,
     setShowMapSelector,
