@@ -46,7 +46,6 @@ export const MapCanvas: React.FC = () => {
     handleNewMap,
     handleSelectMap
   } = useMapSelectionHandlers({
-    history,
     mapState,
     setMapState,
     setShowMapSelector,
