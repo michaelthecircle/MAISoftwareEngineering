@@ -17,17 +17,22 @@ const event_aggregator_service_1 = require("./event-aggregator.service");
 const observers_service_1 = require("./observers.service");
 const event_types_1 = require("../common/event.types");
 let DbListenerService = class DbListenerService {
-    constructor(loggerObserver, notificationObserver, cacheObserver, configService) {
+    constructor(loggerObserver, notificationObserver, cacheObserver, configService, eventAggregator) {
         this.loggerObserver = loggerObserver;
         this.notificationObserver = notificationObserver;
         this.cacheObserver = cacheObserver;
         this.configService = configService;
-        this.eventAggregator = new event_aggregator_service_1.EventAggregator();
+        this.eventAggregator = eventAggregator;
     }
     async onModuleInit() {
         this.client = new pg_1.Client({
             connectionString: this.configService.get('DATABASE_URL'),
         });
+        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.INSERT, this.loggerObserver);
+        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.DELETE, this.loggerObserver);
+        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.INSERT, this.notificationObserver);
+        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.UPDATE, this.cacheObserver);
+        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.DELETE, this.cacheObserver);
         await this.client.connect();
         await this.client.query('LISTEN db_changes');
         console.log('Subscribed to DB changes');
@@ -35,12 +40,6 @@ let DbListenerService = class DbListenerService {
             const payload = JSON.parse(msg.payload);
             this.eventAggregator.publish(payload.operation, payload);
         });
-        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.INSERT, this.loggerObserver);
-        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.UPDATE, this.loggerObserver);
-        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.DELETE, this.loggerObserver);
-        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.INSERT, this.notificationObserver);
-        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.UPDATE, this.cacheObserver);
-        this.eventAggregator.subscribe(event_types_1.EventTypeEnum.DELETE, this.cacheObserver);
     }
 };
 exports.DbListenerService = DbListenerService;
@@ -49,6 +48,7 @@ exports.DbListenerService = DbListenerService = __decorate([
     __metadata("design:paramtypes", [observers_service_1.LoggerObserver,
         observers_service_1.NotificationObserver,
         observers_service_1.CacheObserver,
-        config_1.ConfigService])
+        config_1.ConfigService,
+        event_aggregator_service_1.EventAggregator])
 ], DbListenerService);
 //# sourceMappingURL=db-listener.service.js.map

@@ -27,7 +27,10 @@ export class EventAggregator {
 
   publish(eventType: EventTypeEnum, data: any) {
     const subscribers = this.observers.get(eventType);
-    if (!subscribers) return;
+    if (!subscribers) {
+      console.log(`No subscribers found for event type: ${eventType}`);
+      return;
+    }
 
     for (const subscriber of subscribers) {
       subscriber.update(eventType, data);

@@ -1,6 +1,5 @@
-
 export enum EventTypeEnum {
-    'INSERT',
-    'UPDATE',
-    'DELETE'
+    INSERT = 'INSERT',
+    UPDATE = 'UPDATE',
+    DELETE = 'DELETE'
 }
