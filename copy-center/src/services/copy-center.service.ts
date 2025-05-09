@@ -15,8 +15,6 @@ export class CopyCenterService {
     this.blackAndWhiteHandler = new BlackAndWhitePrinterHandler();
     this.colorHandler = new ColorPrinterHandler();
     this.photoService = new PhotoServiceProxy();
-
-    // Set up the chain of responsibility
     this.blackAndWhiteHandler.setNext(this.colorHandler);
   }
 

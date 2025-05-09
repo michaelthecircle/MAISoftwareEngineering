@@ -3,6 +3,7 @@ import { DbListenerService } from './explorer/db-listener.service';
 import { ConfigModule } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import { CacheObserver, LoggerObserver, NotificationObserver } from './explorer/observers.service';
+import { EventAggregator } from './explorer/event-aggregator.service';
 
 @Module({
   imports: [
@@ -25,6 +26,6 @@ import { CacheObserver, LoggerObserver, NotificationObserver } from './explorer/
     }),
   ],
   controllers: [],
-  providers: [DbListenerService, LoggerObserver, NotificationObserver,CacheObserver],
+  providers: [DbListenerService, LoggerObserver, NotificationObserver, CacheObserver, EventAggregator],
 })
 export class AppModule {}

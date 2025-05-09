@@ -12,6 +12,7 @@ const db_listener_service_1 = require("./explorer/db-listener.service");
 const config_1 = require("@nestjs/config");
 const nestjs_pino_1 = require("nestjs-pino");
 const observers_service_1 = require("./explorer/observers.service");
+const event_aggregator_service_1 = require("./explorer/event-aggregator.service");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -37,7 +38,7 @@ exports.AppModule = AppModule = __decorate([
             }),
         ],
         controllers: [],
-        providers: [db_listener_service_1.DbListenerService, observers_service_1.LoggerObserver, observers_service_1.NotificationObserver, observers_service_1.CacheObserver],
+        providers: [db_listener_service_1.DbListenerService, observers_service_1.LoggerObserver, observers_service_1.NotificationObserver, observers_service_1.CacheObserver, event_aggregator_service_1.EventAggregator],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

@@ -31,7 +31,7 @@ exports.LoggerObserver = LoggerObserver = __decorate([
 ], LoggerObserver);
 let NotificationObserver = class NotificationObserver {
     update(eventType, data) {
-        console.log(`[Notifier] sending noticitaion: ${eventType}, Data: ${JSON.stringify(data)}`);
+        console.log(`[Notifier] sending notification: ${eventType}, Data: ${JSON.stringify(data)}`);
     }
 };
 exports.NotificationObserver = NotificationObserver;
