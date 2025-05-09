@@ -1,11 +1,12 @@
 # MAISoftwareEngineering
 
-## lab1:
+## lab1 db-expolrer:
 - NestJs
 ### about:
 - Event-Aggregator
 - Mediator
 - Observer
+
 project description is in db-explorer folder
 docker-compose file in root directory contains psql container and init.sql scrypt is used for creating table "users" and linking a trigger for it's updates
 ### usage:
@@ -20,12 +21,13 @@ npm run start:dev
 ```
 insert, update or delete row in users to call subscribed to event-aggregator observers actions
 
-## lab2:
+## lab2 road-manager:
 - React
 - React-flow
 ### about:
 - Memento
 - Command
+
 project description is in road-manager folder
 ### usage:
 ```
@@ -34,7 +36,7 @@ cd road-manager/src
 ```
 npm run start
 ```
-## lab4:
+## lab4 copy-center:
 - NestJs
 ### about:
 - State
@@ -49,7 +51,7 @@ cd copy-center/src
 ```
 npm run start:dev
 ```
-## lab5:
+## lab5 service-center:
 - NestJs
 ### about:
 - Singleton
