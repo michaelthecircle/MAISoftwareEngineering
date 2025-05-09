@@ -6,6 +6,7 @@
 - Event-Aggregator
 - Mediator
 - Observer
+project description is in db-explorer folder
 docker-compose file in root directory contains psql container and init.sql scrypt is used for creating table "users" and linking a trigger for it's updates
 ### usage:
 ```
@@ -39,7 +40,8 @@ npm run start
 - State
 - Chain of responsibility
 - Proxy
-project description is in road-manager folder
+
+project description is in copy-center folder
 ### usage:
 ```
 cd copy-center/src
@@ -53,7 +55,8 @@ npm run start:dev
 - Singleton
 - Prototype
 - Abstract Factory
-project description is in road-manager folder
+
+project description is in service-center folder
 ### usage:
 ```
 cd service-center/src
