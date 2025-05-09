@@ -1,6 +1,66 @@
 # MAISoftwareEngineering
 
+## lab1:
+- NestJs
+### about:
+- Event-Aggregator
+- Mediator
+- Observer
+docker-compose file in root directory contains psql container and init.sql scrypt is used for creating table "users" and linking a trigger for it's updates
+### usage:
+```
+docker compose up --build -d
+```
+```
+cd db-explorer/src/
+```
+```
+npm run start:dev
+```
+insert, update or delete row in users to call subscribed to event-aggregator observers actions
 
+## lab2:
+- React
+- React-flow
+### about:
+- Memento
+- Command
+project description is in road-manager folder
+### usage:
+```
+cd road-manager/src 
+```
+```
+npm run start
+```
+## lab4:
+- NestJs
+### about:
+- State
+- Chain of responsibility
+- Proxy
+project description is in road-manager folder
+### usage:
+```
+cd copy-center/src
+```
+```
+npm run start:dev
+```
+## lab5:
+- NestJs
+### about:
+- Singleton
+- Prototype
+- Abstract Factory
+project description is in road-manager folder
+### usage:
+```
+cd service-center/src
+```
+```
+npm run start:dev
+```
 # Задания по курсу “Программная инженерия”.
 
 1. Реализуйте шаблон “аггрегатор событий” на базе паттернов
@@ -49,8 +109,6 @@
 Механики ремонта, утилизации, поступления новых клиентов определите
 самостоятельно. Для модели реализуйте фасад, позволяющий получать:
 состояние пула, активные запросы клиентов, состояние мастерской,
-
-
 информацию об утилизированных компонентах. Время в системе
 дискретно. Начальные настройки частей системы должны быть
 псевдослучайными. Продемонстрируйте работу системы. Обеспечьте
