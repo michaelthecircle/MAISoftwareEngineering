@@ -42,6 +42,7 @@ export class PrintRequestDto {
     example: 'base64_encoded_photo'
   })
   photoData?: string;
+  
 
   @ApiProperty({
     description: 'Timestamp of the request',
